@@ -172,8 +172,8 @@ NSString *const RCTTCPErrorDomain = @"RCTTCPErrorDomain";
       if (setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, (char *)&on, sizeof(on)) ==
           -1) {
           /* TODO: handle error */
-          RCTLogWarn(@"react-native-tcp-socket: setNoDelay() caused an "
-                     @"unexpected error");
+        //   RCTLogWarn(@"react-native-tcp-socket: setNoDelay() caused an "
+        //              @"unexpected error");
       }
     }];
 }
@@ -186,8 +186,8 @@ NSString *const RCTTCPErrorDomain = @"RCTTCPErrorDomain";
       // `initialDelay` is ignored
       if (enableKA == -1) {
           /* TODO: handle error */
-          RCTLogWarn(@"react-native-tcp-socket: setKeepAlive() caused an "
-                     @"unexpected error");
+        //   RCTLogWarn(@"react-native-tcp-socket: setKeepAlive() caused an "
+        //              @"unexpected error");
       }
     }];
 }
@@ -343,8 +343,8 @@ NSString *const RCTTCPErrorDomain = @"RCTTCPErrorDomain";
     didReadData:(NSData *)data
         withTag:(long)tag {
     if (!_clientDelegate) {
-        RCTLogWarn(@"didReadData with nil clientDelegate for %@",
-                   [sock userData]);
+        // RCTLogWarn(@"didReadData with nil clientDelegate for %@",
+        //            [sock userData]);
         return;
     }
 
@@ -374,8 +374,8 @@ NSString *const RCTTCPErrorDomain = @"RCTTCPErrorDomain";
 - (void)socketDidSecure:(GCDAsyncSocket *)sock {
     // Only for TLS
     if (!_clientDelegate) {
-        RCTLogWarn(@"socketDidSecure with nil clientDelegate for %@",
-                   [sock userData]);
+        // RCTLogWarn(@"socketDidSecure with nil clientDelegate for %@",
+        //            [sock userData]);
         return;
     }
     if (_serverId != nil) {
@@ -451,7 +451,7 @@ NSString *const RCTTCPErrorDomain = @"RCTTCPErrorDomain";
                                    length:(NSUInteger)localDataSize];
 
     if (cert1 == nil || cert2 == nil) {
-        RCTLogWarn(@"BAD SSL CERTIFICATE");
+        // RCTLogWarn(@"BAD SSL CERTIFICATE");
         completionHandler(NO);
         return;
     }
@@ -466,8 +466,8 @@ NSString *const RCTTCPErrorDomain = @"RCTTCPErrorDomain";
     didConnectToHost:(NSString *)host
                 port:(uint16_t)port {
     if (!_clientDelegate) {
-        RCTLogWarn(@"didConnectToHost with nil clientDelegate for %@",
-                   [sock userData]);
+        // RCTLogWarn(@"didConnectToHost with nil clientDelegate for %@",
+        //            [sock userData]);
         return;
     }
 
@@ -486,8 +486,8 @@ NSString *const RCTTCPErrorDomain = @"RCTTCPErrorDomain";
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
     if (!_clientDelegate) {
-        RCTLogWarn(@"socketDidDisconnect with nil clientDelegate for %@",
-                   [sock userData]);
+        // RCTLogWarn(@"socketDidDisconnect with nil clientDelegate for %@",
+        //            [sock userData]);
         return;
     }
 
